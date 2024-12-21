@@ -19,3 +19,7 @@ test("should handle multiple numbers separated by commas", () => {
 test("shold handle newline as delimiter", () => {
   expect(stringCalculator("4,5\n6,7")).toBe(4 + 5 + 6 + 7);
 });
+
+test("should handle custom delimiter defined in the following format '//[delimiter]\n[numbers…]'", () => {
+  expect(stringCalculator("//;\n4;5;6;7")).toBe(4 + 5 + 6 + 7);
+});
