@@ -2,7 +2,9 @@ function stringCalculator(inputString) {
   if (!inputString) {
     return 0;
   }
-  return parseInt(inputString, 10);
+  const numbersArray = inputString.split(",").map(Number);
+
+  return numbersArray.reduce((sum, curr) => sum + curr);
 }
 
 module.exports = stringCalculator;
