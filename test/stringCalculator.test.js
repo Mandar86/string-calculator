@@ -15,3 +15,7 @@ test("should return the sum when two number separated by comma are passed", () =
 test("should handle multiple numbers separated by commas", () => {
   expect(stringCalculator("4,5,6,7,8")).toBe(4 + 5 + 6 + 7 + 8);
 });
+
+test("shold handle newline as delimiter", () => {
+  expect(stringCalculator("4,5\n6,7")).toBe(4 + 5 + 6 + 7);
+});
