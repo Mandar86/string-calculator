@@ -12,6 +12,13 @@ function stringCalculator(inputString) {
     inputString = partitions[1];
   }
   const numbersArray = inputString.split(delimiter).map(Number);
+  const negativeNumbers = numbersArray.filter((num) => num < 0);
+
+  if (negativeNumbers.length > 0) {
+    throw new Error(
+      `negative numbers not allowed ${negativeNumbers.join(",")}`
+    );
+  }
 
   return numbersArray.reduce((sum, curr) => sum + curr);
 }

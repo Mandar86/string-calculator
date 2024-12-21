@@ -25,7 +25,7 @@ test("should handle custom delimiter defined in the following format '//[delimit
 });
 
 test("should throw an error for negative numbers", () => {
-  expect(stringCalculator("1,-2,-3,4")).toThrow(
-    "negative numbers not allowed -2,-3"
-  );
+  expect(() => {
+    stringCalculator("1,-2,-3,-4");
+  }).toThrow("negative numbers not allowed -2,-3,-4");
 });
