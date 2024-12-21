@@ -1,4 +1,3 @@
-function stringCalculator() {
-}
+function stringCalculator(inputString) {}
 
 module.exports = stringCalculator;
