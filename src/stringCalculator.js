@@ -2,10 +2,17 @@ function stringCalculator(inputString) {
   if (!inputString) return 0;
 
   let delimiter = /,|\n/;
-
+  let isMultiply = false;
   if (inputString.startsWith("//")) {
     const partitions = inputString.split("\n");
-    delimiter = new RegExp(partitions[0].slice(2));
+    const separatedDelimiter = partitions[0].slice(2);
+
+    if (separatedDelimiter === "*") {
+      delimiter = /\*/;
+      isMultiply = true;
+    } else {
+      delimiter = new RegExp(separatedDelimiter);
+    }
     inputString = partitions[1];
   }
   const numbersArray = inputString.split(delimiter).map(Number);
@@ -17,6 +24,9 @@ function stringCalculator(inputString) {
     );
   }
 
+  if (isMultiply) {
+    return numbersArray.reduce((mult, curr) => mult * curr);
+  }
   return numbersArray.reduce((sum, curr) => sum + curr);
 }
 
